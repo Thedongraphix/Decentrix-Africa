@@ -200,15 +200,18 @@ h6 {
 /* Index Page Header
 ------------------------------*/
 .index-page .header {
-  --background-color: rgba(255, 255, 255, 0);
-  --heading-color: #ffffff;
-  --nav-color: #ffffff;
+  --background-color: #ffffff;
+  --heading-color: #333333;
+  --nav-color: #333333;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: rgba(40, 58, 90, 0.9);
+  --background-color: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 /*--------------------------------------------------------------
@@ -230,36 +233,55 @@ h6 {
 
   .navmenu li {
     position: relative;
+    padding: 0 12px;
   }
 
-  .navmenu a,
-  .navmenu a:focus {
+  .navmenu a {
     color: var(--nav-color);
-    padding: 18px 15px;
+    padding: 12px 0;
     font-size: 15px;
     font-family: var(--nav-font);
-    font-weight: 400;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    transition: transform 0.3s ease, color 0.3s ease;
-    transform: scale(1); /* Initial scale */
+    transition: all 0.3s ease;
+    position: relative;
   }
 
-  /* Hover Effect: Growing effect */
+  .navmenu a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+    transform-origin: left;
+  }
+
+  .navmenu a:hover::before,
+  .navmenu .active::before {
+    width: 100%;
+  }
+
   .navmenu a:hover,
   .navmenu .active {
-    transform: scale(1.2); /* Slightly grows on hover */
-    color: var(--nav-hover-color); /* Change the color */
+    color: var(--accent-color);
+    transform: translateY(-2px);
   }
 
-  .navmenu a i,
-  .navmenu a:focus i {
+  .navmenu a i {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
     transition: 0.3s;
+  }
+
+  .navmenu .active i {
+    transform: rotate(180deg);
   }
 
   .navmenu li:last-child a {
@@ -319,50 +341,43 @@ h6 {
 /* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-      color: var(--nav-color);
-      font-size: 32px;
-      cursor: pointer;
-      z-index: 10000; /* Ensures the icon is above other elements */
+    color: var(--nav-color);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+    z-index: 9999;
+  }
+
+  .mobile-nav-toggle:hover {
+    color: var(--accent-color);
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
   }
 
   .navmenu ul {
-      list-style: none;
-      position: fixed;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 80%;
-      padding: 60px 20px 20px;
-      margin: 0;
-      font-size:15px;
-      font-weight: 500;
-      background-color: var(--nav-mobile-background-color);
-      box-shadow: -4px 0 30px rgba(0, 0, 0, 0.2);
-      transform: translateX(100%); /* Initially off-screen to the right */
-      transition: transform 0.4s ease-in-out; /* Smooth transition in and out */
+    background-color: #ffffff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a {
+    color: var(--nav-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active {
+    color: var(--accent-color);
+  }
+
+  .navmenu a::before {
+    display: none;
   }
 
   .mobile-nav-active .navmenu ul {
-      transform: translateX(0); /* Slide in when active */
-  }
-
-  /* Optional: Hover effect for links */
-  .navmenu a {
-      color: var(--nav-dropdown-color);
-      padding: 10px 20px;
-      text-align: left;
-      display: block;
-      transition: color 0.3s;
-  }
-
-  /* The 'X' icon styling */
-  .mobile-nav-active .mobile-nav-toggle {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 32px;
-      z-index: 10001;
-      color: #333333;
+    display: block;
   }
 }
 
