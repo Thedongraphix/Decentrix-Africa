@@ -2142,7 +2142,6 @@ img:not(.portfolio-item img) {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .about-slide {
@@ -2168,19 +2167,17 @@ img:not(.portfolio-item img) {
   left: 0;
   right: 0;
   padding: 40px 30px;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-  color: #fff;
+  background: color-mix(in srgb, var(--background-color), transparent 10%);
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+  transform: translateY(100%);
 }
 
 .about-slide-content h4 {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #ec058e;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
+  color: var(--accent-color);
 }
 
 .about-slide-content p {
@@ -2188,13 +2185,10 @@ img:not(.portfolio-item img) {
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease 0.1s;
+  color: var(--accent-color);
 }
 
-.about-slide:hover .about-slide-content h4,
-.about-slide:hover .about-slide-content p {
+.about-slide:hover .about-slide-content {
   opacity: 1;
   transform: translateY(0);
 }
@@ -2223,7 +2217,7 @@ img:not(.portfolio-item img) {
 }
 
 .about-slider-nav button:hover {
-  background: #ec058e;
+  background: #51ADE5;
   transform: scale(1.1);
 }
 
