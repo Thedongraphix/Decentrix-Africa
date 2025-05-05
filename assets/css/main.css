@@ -942,105 +942,238 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.drop-cap::first-letter {
-  font-size: 48px; /* Adjust the size as needed */
-  float: left;
-  margin-right: 0.1em;
-  line-height: 1;
-  color: var(--accent-color); /* Optional: Change the color */
+.about {
+  padding: 60px 0;
 }
 
-
-.about h2 {
-  font-weight: 600;
-  font-size: 16px;
-  margin-top: -12px;
-}
-
-.about h3 {
-  margin-bottom: 25px;
-  font-weight: 600;
-  color: var(--heading-color);
-}
-
-.about p {
-  margin: 15px 0 20px 0;
-  line-height: 24px;
-  font-size: 15px;
-  margin-top: -20px;
-}
-
-.about .col-lg-6 p:first-of-type {
-  margin-top: 0;
-}
-
-.about .col-lg-6:last-child p {
-  margin: 0 0 12px 0;
-}
-
-.about .col-lg-6:last-child p:last-of-type {
-  margin-bottom: 25px;
-}
-
-.about ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
+.about .about-card {
+  background-color: var(--surface-color);
+  padding: 40px 30px;
+  border-radius: 15px;
   margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.about ul li {
-  padding-bottom: 20px;
+.about .about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about .about-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
+  border-radius: 50%;
   display: flex;
-  align-items: flex-start;
-}
-
-.about ul li:last-child {
-  padding-bottom: 0;
-}
-
-.about ul i {
-  font-size: 20px;
-  padding-right: 12px;
-  color: var(--accent-color);
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-
-.about ul span {
-  display: inline-block;
-  line-height: 1.6;
-}
-
-.about .read-more {
-  color: var(--accent-color);
-  font-family: var(--heading-font);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 8px 28px;
-  border-radius: 25px;
-  transition: 0.3s;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--accent-color);
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
 }
 
-.about .read-more i {
-  font-size: 18px;
-  margin-left: 5px;
-  line-height: 0;
-  transition: 0.3s;
-}
-
-.about .read-more:hover {
-  background: var(--accent-color);
+.about .about-icon i {
+  font-size: 32px;
   color: var(--contrast-color);
+  transition: all 0.3s ease;
 }
 
-.about .read-more:hover i {
-  transform: translate(5px, 0);
+.about .about-card:hover .about-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(236, 5, 142, 0.2);
+}
+
+.about .about-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.about .about-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.about .about-card:hover h3::after {
+  width: 100px;
+}
+
+.about .about-card p {
+  color: var(--default-color);
+  margin-bottom: 0;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.about .card-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.about .about-card:hover .card-border {
+  transform: scaleX(1);
+}
+
+/* Mission Card Specific Styles */
+.about .mission-card .about-icon {
+  background: linear-gradient(135deg, #ec058e, #ff6b6b);
+}
+
+/* Vision Card Specific Styles */
+.about .vision-card .about-icon {
+  background: linear-gradient(135deg, #51ADE5, #6c5ce7);
+}
+
+/* Approach Card Specific Styles */
+.about .approach-card .about-icon {
+  background: linear-gradient(135deg, #85c536, #00b894);
+}
+
+/* Stats Section Styles */
+.about .about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.about .stat-item {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about .stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about .stat-icon {
+  width: 50px;
+  height: 50px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  transition: all 0.3s ease;
+}
+
+.about .stat-icon i {
+  font-size: 24px;
+  color: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.about .stat-item:hover .stat-icon {
+  background: var(--accent-color);
+}
+
+.about .stat-item:hover .stat-icon i {
+  color: var(--contrast-color);
+  transform: scale(1.1);
+}
+
+.about .stat-number {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.about .stat-label {
+  display: block;
+  font-size: 14px;
+  color: var(--default-color);
+  font-weight: 500;
+}
+
+.about .about-image {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about .about-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.about .about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about .image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 30px;
+  color: #fff;
+}
+
+.about .image-overlay h4 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.about .image-overlay p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .about .about-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .about .about-card {
+    padding: 30px 20px;
+  }
+  
+  .about .stat-number {
+    font-size: 32px;
+  }
+  
+  .about .about-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .about .about-icon i {
+    font-size: 28px;
+  }
 }
 
 /*--------------------------------------------------------------
