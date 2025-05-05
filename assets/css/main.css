@@ -918,25 +918,50 @@ section,
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
-.clients {
-  padding: 12px 0;
+#clients {
+  padding: 60px 0;
+  background: #f9f9f9;
 }
 
-.clients .swiper {
-  padding: 10px 0;
+#clients h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
 }
 
-.clients .swiper-wrapper {
-  height: auto;
+.clients-carousel {
+  overflow: hidden;
+  position: relative;
 }
 
-.clients .swiper-slide img {
-  transition: 0.3s;
-  padding: 0 10px;
+.clients-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
 }
 
-.clients .swiper-slide img:hover {
+.client-logo {
+  flex: 0 0 auto;
+  margin: 0 15px;
+}
+
+.client-logo img {
+  max-width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.client-logo img:hover {
   transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1362,65 +1387,6 @@ section,
   .why-us .why-us-img .img-wrapper::before {
     display: none;
   }
-}
-
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills .content h3 {
-  font-size: 19px;
-  font-weight: 700;
-}
-
-.skills .content p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-.skills .content p:last-child {
-  margin-bottom: 0;
-}
-
-.skills .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.skills .content ul li {
-  padding-bottom: 10px;
-}
-
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
-}
-
-.skills .progress .skill {
-  color: var(--default-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--heading-color), transparent 90%);
-  height: 10px;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color:#85c536;
 }
 
 /*--------------------------------------------------------------

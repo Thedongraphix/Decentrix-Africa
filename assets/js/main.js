@@ -187,6 +187,24 @@
   });
 
   /**
+   * Infinite scroll for clients carousel
+   */
+  const clientsTrack = document.querySelector('.clients-track');
+  if (clientsTrack) {
+    const clientLogos = clientsTrack.querySelectorAll('.client-logo');
+    const totalWidth = clientLogos.length * (200 + 40); // width + gap
+    const cloneCount = Math.ceil(window.innerWidth / totalWidth) + 1;
+
+    // Clone logos for infinite scroll
+    for (let i = 0; i < cloneCount; i++) {
+      clientLogos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        clientsTrack.appendChild(clone);
+      });
+    }
+  }
+
+  /**
    * Init isotope layout and filters
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
