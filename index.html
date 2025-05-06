@@ -114,7 +114,6 @@
                 </div>
                 <p class="mission-text">Revolutionizing Africa's digital future by unlocking the transformative potential of Web 3.0, fostering innovation, and creating sustainable opportunities.</p>
               </div>
-              <div class="accent-bar"></div>
             </div>
           </div>
           
@@ -129,7 +128,6 @@
                 </div>
                 <p class="vision-text">To become Africa's leading catalyst for Web 3.0 adoption, empowering businesses and communities to thrive in a decentralized world.</p>
               </div>
-              <div class="accent-bar"></div>
             </div>
           </div>
         </div>
@@ -138,13 +136,13 @@
         <div class="row gx-5 gy-4">
           <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
             <div class="about-image-container position-relative">
-              <img src="assets/img/about/about-1.jpg" alt="Team Collaboration" class="img-fluid rounded shadow-lg">
+              <img src="assets/img/masonry-portfolio/image-7.jpg" alt="Team Collaboration" class="img-fluid rounded shadow-lg">
               <div class="image-overlay">
-                <h4>Team Collaboration</h4>
+                <h4>Web 3.0</h4>
                 <p>Our dedicated team working together to drive innovation</p>
               </div>
               <div class="experience-badge">
-                <span>5+</span> Years Experience
+                <span>Web 3.0</span>
               </div>
             </div>
           </div>
@@ -156,7 +154,7 @@
                 <h3 class="section-subtitle mb-4">Our Approach</h3>
                 <div class="row g-4">
                   <div class="col-md-6">
-                    <div class="approach-item d-flex align-items-start">
+                    <div class="d-flex align-items-start">
                       <div class="approach-icon">
                         <i class="bi bi-book"></i>
                       </div>
@@ -167,7 +165,7 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="approach-item d-flex align-items-start">
+                    <div class="d-flex align-items-start">
                       <div class="approach-icon">
                         <i class="bi bi-share"></i>
                       </div>
@@ -178,7 +176,7 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="approach-item d-flex align-items-start">
+                    <div class="d-flex align-items-start">
                       <div class="approach-icon">
                         <i class="bi bi-gear"></i>
                       </div>
@@ -189,7 +187,7 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="approach-item d-flex align-items-start">
+                    <div class="d-flex align-items-start">
                       <div class="approach-icon">
                         <i class="bi bi-people"></i>
                       </div>
@@ -201,42 +199,13 @@
                   </div>
                 </div>
               </div>
-              
-              <!-- Stats Section -->
-              <div class="stats-section">
-                <h3 class="section-subtitle mb-4">Our Impact</h3>
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <div class="stat-card text-center">
-                      <div class="stat-value"><span class="counter">100</span>%</div>
-                      <div class="stat-label">Team Work Force</div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="stat-card text-center">
-                      <div class="stat-value"><span class="counter">70</span>%</div>
-                      <div class="stat-label">Monthly Growth</div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="stat-card text-center">
-                      <div class="stat-value"><span class="counter">75</span>%</div>
-                      <div class="stat-label">Community Engagement</div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="stat-card text-center">
-                      <div class="stat-value"><span class="counter">55</span>%</div>
-                      <div class="stat-label">New Recruitments</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /About Section -->
+    </section>
+
+    <!-- /About Section -->
 
     <!-- Why Us Section -->
     <section id="why-us" class="section why-us light-background" data-builder="section">
@@ -965,5 +934,49 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
+<script>
+  // Counter animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.counter');
+    const countersStarted = false;
+    
+    function checkCounters() {
+      const statsSection = document.querySelector('.stats-section');
+      if (!statsSection) return;
+      
+      const rect = statsSection.getBoundingClientRect();
+      const isInView = (rect.top <= window.innerHeight && rect.bottom >= 0);
+      
+      if (isInView && !countersStarted) {
+        countersStarted = true;
+        
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-count');
+          let count = 0;
+          const duration = 2000; // ms
+          const step = Math.ceil(target / (duration / 30));
+          
+          const updateCount = () => {
+            if (count < target) {
+              count += step;
+              if (count > target) count = target;
+              counter.innerText = count;
+              requestAnimationFrame(updateCount);
+            }
+          };
+          
+          updateCount();
+        });
+      }
+    }
+    
+    // Check on scroll and initial page load
+    window.addEventListener('scroll', checkCounters);
+    
+    // Initial check
+    setTimeout(checkCounters, 500);
+  });
+  </script>
 
 </html>
