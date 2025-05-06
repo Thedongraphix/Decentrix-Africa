@@ -1145,7 +1145,204 @@ section,
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+/* Modern About Section Styling */
+.about .about-intro {
+  padding-bottom: 30px;
+}
 
+.about .about-intro .lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about .mission-box,
+.about .vision-box {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  padding: 35px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.about .mission-box:hover,
+.about .vision-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.about .mission-icon,
+.about .vision-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about .mission-icon {
+  background: rgba(236, 5, 142, 0.1);
+  color: var(--accent-color);
+}
+
+.about .vision-icon {
+  background: rgba(81, 173, 229, 0.1);
+  color: var(--heading-color);
+}
+
+.about .mission-icon i,
+.about .vision-icon i {
+  font-size: 28px;
+}
+
+.about .accent-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+
+.about .mission-box .accent-bar {
+  background: linear-gradient(90deg, var(--accent-color) 70%, transparent);
+}
+
+.about .vision-box .accent-bar {
+  background: linear-gradient(90deg, var(--heading-color) 70%, transparent);
+}
+
+.about .about-image-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about .image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 25px;
+  color: #fff;
+}
+
+.about .image-overlay h4 {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.about .experience-badge {
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  background: var(--accent-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: rotate(5deg);
+}
+
+.about .experience-badge span {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.about .stats-approach-container {
+  padding: 0 0 0 20px;
+}
+
+.about .section-subtitle {
+  color: var(--heading-color);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.about .section-subtitle:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+}
+
+.about .approach-item {
+  margin-bottom: 20px;
+}
+
+.about .approach-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(81, 173, 229, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--heading-color);
+  flex-shrink: 0;
+}
+
+.about .approach-content h5 {
+  font-size: 17px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.about .approach-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+.about .stat-card {
+  background: var(--surface-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.about .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.about .stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.about .stat-label {
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .about .stats-approach-container {
+    padding: 20px 0 0 0;
+  }
+  
+  .about .mission-box,
+  .about .vision-box {
+    padding: 25px;
+  }
+}
 .about .about-image img {
   width: 100%;
   height: auto;
